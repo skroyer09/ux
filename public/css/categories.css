@@ -1,0 +1,34 @@
+@import 'styles.css';
+
+ul {
+    display: grid;
+    margin: 0 auto;
+    max-width: 960px;
+    grid-template-columns: repeat(9, 1fr); /* Adjusted the number of columns to fit 9 */
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    border: 3px solid black; /* Adjusted to show border clearly */
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover; /* Cover to ensure the entire li is filled */
+    background-position: center; /* Center the image to focus on the middle */
+}
+
+ul li h1,p {
+    color: #ffffff;
+}
+
+.grid1 { grid-column: 1/4; background-image: url('https://source.unsplash.com/random/300x200'); }
+.grid2 { grid-column: 4/6; background-image: url('https://source.unsplash.com/random/301x201'); }
+.grid3 { grid-column: 6/10; background-image: url('https://source.unsplash.com/random/302x202'); }
+.grid4 { grid-column: 1/3; background-image: url('https://source.unsplash.com/random/303x203'); }
+.grid5 { grid-column: 3/6; background-image: url('https://source.unsplash.com/random/304x204'); }
+.grid6 { grid-column: 6/10; background-image: url('https://source.unsplash.com/random/305x205'); }
+.grid7 { grid-column: 1/3; background-image: url('https://source.unsplash.com/random/306x206'); }
+.grid8 { grid-column: 3/5; background-image: url('https://source.unsplash.com/random/307x207'); }
+.grid9 { grid-column: 5/10; background-image: url('https://source.unsplash.com/random/308x208'); }
