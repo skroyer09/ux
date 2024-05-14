@@ -94,13 +94,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     ingredients.forEach(ingredient => {
                         if (ingredient.name.trim() && ingredient.measure.trim()) {
-                            const p = document.createElement('p');
-                            p.textContent = `${ingredient.name}: ${ingredient.measure}`;
-                            ingredientsDiv.appendChild(p);
+                            const li = document.createElement('li');
+                            li.textContent = `${ingredient.name}: ${ingredient.measure}`;
+                            ingredientsDiv.appendChild(li);
                         }
                     });
 
                     mealDetail.appendChild(ingredientsDiv);
+                    const ingredients_instructions_div = document.createElement('div');
+                    ingredients_instructions_div.appendChild(ingredientsDiv);
+                    ingredients_instructions_div.appendChild(instructionsDiv);
+                    mealDetail.appendChild(ingredients_instructions_div);
                 } else {
                     mealDetail.textContent = 'Meal details not found.';
                 }
