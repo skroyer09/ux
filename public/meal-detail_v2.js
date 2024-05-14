@@ -27,25 +27,31 @@ document.addEventListener('DOMContentLoaded', function() {
                         strMeasure16, strMeasure17, strMeasure18, 
                         strMeasure19, strMeasure20,  } = data.meals[0];
 
+                    const img_name_div = document.createElement('div');
+                    
                     const img = document.createElement('img');
                     img.src = strMealThumb;
-                    mealDetail.appendChild(img);
+                    img_name_div.appendChild(img);
+                    // mealDetail.appendChild(img);
 
                     const mealName = document.createElement('h1');
                     mealName.textContent = strMeal;
-                    mealDetail.appendChild(mealName);
+                    img_name_div.appendChild(mealName);
+                    // mealDetail.appendChild(mealName);
 
                     const category = document.createElement('p');
                     category.textContent = `Category: ${strCategory}`;
-                    mealDetail.appendChild(category);
+                    img_name_div.appendChild(category);
+                    mealDetail.appendChild(img_name_div);
 
-                    const Instructions_h1 = document.createElement('H1');
-                    Instructions_h1.textContent = 'Instructions';
-                    mealDetail.appendChild(Instructions_h1);
+                    // Create and append the Instructions section
+                    const instructionsDiv = document.createElement('div');
 
-                    const Instructions = document.createElement('div');
+                    const instructionsHeading = document.createElement('h1');
+                    instructionsHeading.textContent = 'Instructions';
+                    instructionsDiv.appendChild(instructionsHeading);
+
                     const sentences = strInstructions.split(/(?<=[.!?])\s+/).filter(sentence => sentence.trim().length > 0);
-
                     const ol = document.createElement('ol');
                     sentences.forEach(sentence => {
                         const li = document.createElement('li');
@@ -53,14 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         ol.appendChild(li);
                     });
 
-                    mealDetail.appendChild(ol);
+                    instructionsDiv.appendChild(ol);
+                    mealDetail.appendChild(instructionsDiv);
 
-                    // Instructions.textContent = `${strInstructions}`;
-                    // mealDetail.appendChild(Instructions);
+                    // Create and append the Ingredients section
+                    const ingredientsDiv = document.createElement('div');
 
-                    const h1 = document.createElement('H1');
-                    h1.textContent = 'Ingredients';
-                    mealDetail.appendChild(h1);
+                    const ingredientsHeading = document.createElement('h1');
+                    ingredientsHeading.textContent = 'Ingredients';
+                    ingredientsDiv.appendChild(ingredientsHeading);
 
                     const ingredients = [
                         { name: strIngredient1, measure: strMeasure1 },
@@ -83,15 +90,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         { name: strIngredient18, measure: strMeasure18 },
                         { name: strIngredient19, measure: strMeasure19 },
                         { name: strIngredient20, measure: strMeasure20 }
-                      ];
+                    ];
 
-                      ingredients.forEach(ingredient => {
+                    ingredients.forEach(ingredient => {
                         if (ingredient.name.trim() && ingredient.measure.trim()) {
-                          const p = document.createElement('p');
-                          p.textContent = `${ingredient.name}: ${ingredient.measure}`;
-                          mealDetail.appendChild(p);
+                            const p = document.createElement('p');
+                            p.textContent = `${ingredient.name}: ${ingredient.measure}`;
+                            ingredientsDiv.appendChild(p);
                         }
-                      });
+                    });
+
+                    mealDetail.appendChild(ingredientsDiv);
                 } else {
                     mealDetail.textContent = 'Meal details not found.';
                 }
