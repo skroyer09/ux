@@ -22,11 +22,12 @@ document.getElementById('searchButton').addEventListener('click', function() {
               const li = document.createElement('li');
               li.className = `grid${(index % 9) || 9}`;
 
-              const link = document.createElement('a');
-              link.href = `meal-detail.html?id=${meal.idMeal}`; // Link to meal detail page
-              link.className = 'meal-link';
-              link.textContent = "View Meal Details";
-              li.appendChild(link);
+              const button = document.createElement('button');
+              button.textContent = "Click here to see details";
+
+              button.addEventListener('click', function() {
+                window.location.href = `meal-detail.html?id=${meal.idMeal}`
+              })
 
               const h1 = document.createElement('h1');
               h1.textContent = meal.strMeal;
@@ -35,6 +36,8 @@ document.getElementById('searchButton').addEventListener('click', function() {
               const p = document.createElement('p');
               p.textContent = `Category: ${meal.strCategory}`;
               li.appendChild(p);
+
+              li.appendChild(button);
 
               return li;
           }
