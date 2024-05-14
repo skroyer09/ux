@@ -44,8 +44,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     mealDetail.appendChild(Instructions_h1);
 
                     const Instructions = document.createElement('div');
-                    Instructions.textContent = `${strInstructions}`;
-                    mealDetail.appendChild(Instructions);
+                    const sentences = strInstructions.split(/(?<=[.!?])\s+/).filter(sentence => sentence.trim().length > 0);
+
+                    const ol = document.createElement('ol');
+                    sentences.forEach(sentence => {
+                        const li = document.createElement('li');
+                        li.textContent = sentence.trim();
+                        ol.appendChild(li);
+                    });
+
+                    mealDetail.appendChild(ol);
+
+                    // Instructions.textContent = `${strInstructions}`;
+                    // mealDetail.appendChild(Instructions);
 
                     const h1 = document.createElement('H1');
                     h1.textContent = 'Ingredients';
