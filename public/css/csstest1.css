@@ -13,6 +13,7 @@
     background-position: center;
     position: relative; /* Ensure button positions correctly */
     color: white; /* Text color for visibility */
+    border-radius: 20px;
 }
 
 .grid-item h1, .grid-item p, .grid-item button {
