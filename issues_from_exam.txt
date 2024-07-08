@@ -2,7 +2,7 @@
 
 2. The categories are hardcoded instead of read from the API (recipe_site.html, lines 43-58)
 
-3. Lack of wayfinding mechanisms (CTAs, breadcrumbs)
+3. Lack of wayfinding mechanisms (CTAs, breadcrumbs) - steffen is working on it 
 
 4. Sitemap: no differentiation between main navigation, utility navigation and footer navigation 
 
@@ -18,7 +18,7 @@
 9. Redundant font load in _variables.css
 
 10. CSS: hardcoded colours (cards.css, lines 82, 83 and 84) and hardcoded fonts (search_styles.css, line 24) instead of custom properties 
-- steffen working on it
+- steffen is working on it - needs code review (look at all css and see if there is any px)
 
 11. The homepage images are too big and with no alternate sizes
 
