@@ -62,7 +62,7 @@ main {
 
 .login-input {
     padding: 0.5rem;
-    border: 1px solid;
+    border: 0.06rem solid;
     border-radius: 0.25rem;
 }
 

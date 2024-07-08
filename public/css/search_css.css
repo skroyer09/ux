@@ -6,46 +6,46 @@
 
 .grid-container {
     display: grid;
-    gap: 10px;
+    gap: 0.625rem; 
     list-style-type: none;
-    padding: 50px;
+    padding: 3.125rem;
     margin: 0;
 }
 
 .grid-item {
-    height: 200px;
+    height: 12.5rem;
     background-size: cover;
     background-position: center;
     position: relative;
     color: var(--bgColor);
-    border-radius: 20px;
+    border-radius: 1.25rem;
 }
 
 .grid-item h2, .grid-item p, .grid-item button {
     position: absolute;
     z-index: 1;
-    padding: 10px;
+    padding: 0.625rem;
     background: var(--shadowTheHedgehog);
-    border-radius: 5px;
+    border-radius: 0.313rem;
 }
 
 .grid-item h2 {
-    top: 10px;
-    left: 10px;
+    top: 0.625rem;
+    left: 0.625rem;
 }
 
 .grid-item p {
     top: 40px;
-    left: 10px;
+    left: 0.625rem;
 }
 
 .grid-item button {
-    bottom: 10px;
-    left: 10px;
-    padding: 5px 10px;
+    bottom: 0.625rem;
+    left: 0.625rem;
+    padding: 0.313rem 0.625rem;
     background-color: var(--logoColor);
     color: var(--bgColor);
-    border: solid 1px var(--bgColor);
+    border: solid 0.063rem var(--bgColor);
     cursor: pointer;
 }
 
@@ -66,21 +66,21 @@ h2 {
 }
 
 #search_div button {
-    bottom: 10px;
-    left: 10px;
-    padding: 5px 10px;
+    bottom: 0.625rem;
+    left: 0.625rem;
+    padding: 0.313rem 0.625rem;
     background-color: var(--logoColor);
     color: var(--bgColor);
     border: none;
     cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     .grid-container {
         display: block;
     }
 
     .grid-item {
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 }
