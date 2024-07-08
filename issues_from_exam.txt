@@ -9,7 +9,7 @@
 5. Inline JavaScript (e.g, index.html, line 33), thus breaking the separation of concerns pattern 
 (in other words, don't use onclick in HTML elements bc. of separation of concerns pattern)
 
-6. Accessibility: "title" attributes missing in <a>
+6. Accessibility: "title" attributes missing in <a> - steffen is working on it 
 
 7. Inconsistent code indentation
 
