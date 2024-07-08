@@ -27,6 +27,17 @@
     transition: transform 500ms ease;
 }
 
+.card-of-the-week {
+    color: var(--cardsTextColor);
+    padding: 5rem 0 0;
+    max-width: 35rem;
+    border-radius: 0.5rem; 
+    overflow: hidden;
+    background-image: url('https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg');
+    background-size: cover;
+    box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
+}
+
 .card2 {
     color: var(--cardsTextColor);
     padding: 5rem 0 0;
@@ -83,6 +94,14 @@
     transition: transform 500ms ease;
 }
 
+.card-content-of-the-week {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    background: var(--cardBgLg);
+}
+
 .card-content > *:not(.card-title) {
     opacity: 0;
     transition: opacity 500ms linear;
@@ -106,6 +125,12 @@
 .card-title {
     position: relative;
     margin-bottom: 0.5rem;
+    color: var(--cardsTextColor);
+}
+
+.card-title-of-the-week {
+    position: relative;
+    margin-bottom: 0.1rem;
     color: var(--cardsTextColor);
 }
 

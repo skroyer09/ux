@@ -61,7 +61,7 @@
 
 @media(min-width: 28rem){
     .main-content {
-        max-width: 90%;
+        max-width: 100%;
     }
 
     .recipes-of-the-week {
