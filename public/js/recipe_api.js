@@ -35,13 +35,6 @@ fetch(url)
                 h1.textContent = meal.strMeal;
                 li.appendChild(h1);
 
-                const button = document.createElement('button');
-                button.textContent = "Click here to see details";
-                button.addEventListener('click', function() {
-                    window.location.href = `meal-detail.html?id=${meal.idMeal}&favorites=${encodeURIComponent(JSON.stringify(getFavoriteRecipes()))}`;
-                });
-                li.appendChild(button);
-
                 const favoriteButton = document.createElement('button');
                 favoriteButton.classList = 'favoriteButton';
                 favoriteButton.textContent = isFavorite(meal.idMeal) ? '✓ Favorited' : '★ Favorite';
@@ -49,6 +42,13 @@ fetch(url)
                     toggleFavorite(meal, favoriteButton);
                 });
                 li.appendChild(favoriteButton);
+
+                const button = document.createElement('button');
+                button.textContent = "Click here to see details";
+                button.addEventListener('click', function() {
+                    window.location.href = `meal-detail.html?id=${meal.idMeal}&favorites=${encodeURIComponent(JSON.stringify(getFavoriteRecipes()))}`;
+                });
+                li.appendChild(button);
 
                 return li;
             }
