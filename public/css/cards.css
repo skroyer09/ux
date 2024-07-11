@@ -21,7 +21,7 @@
     max-width: 35rem;
     border-radius: 0.5rem; 
     overflow: hidden;
-    background-image: url('https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg');
+    background-image: url('www.themealdb.com/api/json/v1/1/random.php');
     background-size: cover;
     box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
     transition: transform 500ms ease;
