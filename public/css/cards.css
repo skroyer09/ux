@@ -13,6 +13,19 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin: 1rem 1rem 5rem 1rem;
+    
+}
+
+.card-of-the-week {
+    color: var(--cardsTextColor);
+    padding: 5rem 0 0;
+    max-width: 35rem;
+    border-radius: 0.5rem; 
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
+    transition: transform 500ms ease;
 }
 
 .card1 {
@@ -21,22 +34,10 @@
     max-width: 35rem;
     border-radius: 0.5rem; 
     overflow: hidden;
-    background-image: url('www.themealdb.com/api/json/v1/1/random.php');
     background-size: cover;
+    background-position: center;
     box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
     transition: transform 500ms ease;
-}
-
-.card-of-the-week {
-    color: var(--cardsTextColor);
-    padding: 5rem 0 0;
-    max-width: 35rem;
-    margin: 1rem;
-    border-radius: 0.5rem; 
-    overflow: hidden;
-    background-image: url('https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg');
-    background-size: cover;
-    box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
 }
 
 .card2 {
@@ -45,8 +46,8 @@
     max-width: 35rem;
     border-radius: 0.5rem; 
     overflow: hidden;
-    background-image: url('https://www.themealdb.com/images/media/meals/58oia61564916529.jpg');
     background-size: cover;
+    background-position: center;
     box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
     transition: transform 500ms ease;
 }
@@ -57,8 +58,8 @@
     max-width: 35rem;
     border-radius: 0.5rem; 
     overflow: hidden;
-    background-image: url('https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg');
     background-size: cover;
+    background-position: center;
     box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
     transition: transform 500ms ease;
 }
@@ -69,8 +70,8 @@
     max-width: 35rem;
     border-radius: 0.5rem; 
     overflow: hidden;
-    background-image: url('https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg');
     background-size: cover;
+    background-position: center;
     box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
     transition: transform 500ms ease;
 }
@@ -82,16 +83,17 @@
 .card2:hover, 
 .card3:hover, 
 .card4:hover {
-    transform: scale(1.05);
+    transform: scale(1);
 }
 
 .card-content {
     display: flex;
     flex-direction: column;
+    height: 100%;
     padding: 1.5rem;
     gap: 1rem;
     background: var(--cardBgLg);
-    transform: translateY(60%);
+    transform: translateY(50%);
     transition: transform 500ms ease;
 }
 
