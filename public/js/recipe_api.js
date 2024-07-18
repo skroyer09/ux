@@ -1,61 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
-fetch(url)
+    fetch(url)
         .then(response => response.json())
         .then(data => {
             const mealArray = data.meals;
-            // Check if any recipes are found, if not display 'No meals found.'
             if (!mealArray) {
                 document.getElementById('mealDisplay').textContent = 'No meals found.';
-                return; // Stop further execution if no meals
+                return;
             }
 
-            // Create the structure of the recipe element
             const ul = document.createElement('ul');
-            ul.className = 'grid-container'; // Add the grid container class
-            document.getElementById('mealDisplay').innerHTML = ''; // Clear previous results
+            ul.className = 'grid-container';
+            document.getElementById('mealDisplay').innerHTML = '';
             document.getElementById('mealDisplay').appendChild(ul);
 
-            // Grid column pattern design for search results
             const gridColumns = [
                 '1 / 4', '4 / 6', '6 / 10',
                 '1 / 3', '3 / 6', '6 / 10',
                 '1 / 3', '3 / 5', '5 / 10'
             ];
 
-            // function that creates an li element with content from recipes
-            function createListItem(index, meal) {
-                const li = document.createElement('li');
-                li.className = 'grid-item'; // Use a general class for styling
-                li.style.gridColumn = gridColumns[(index - 1) % gridColumns.length]; // grid column
-                li.style.backgroundImage = `url(${meal.strMealThumb})`; // background image 
-                li.setAttribute('aria-label', meal.strMeal); // aria-label
-                
-                const h1 = document.createElement('h2');
-                h1.textContent = meal.strMeal;
-                li.appendChild(h1);
-
-                const button = document.createElement('button');
-                button.textContent = "Click here to see details";
-                button.addEventListener('click', function() {
-                    window.location.href = `meal-detail.html?id=${meal.idMeal}&favorites=${encodeURIComponent(JSON.stringify(getFavoriteRecipes()))}`;
-                });
-                li.appendChild(button);
-
-                const favoriteButton = document.createElement('button');
-                favoriteButton.classList = 'favoriteButton';
-                favoriteButton.textContent = isFavorite(meal.idMeal) ? '✓ Favorited' : '★ Favorite';
-                favoriteButton.addEventListener('click', function() {
-                    toggleFavorite(meal, favoriteButton);
-                });
-                li.appendChild(favoriteButton);
-
-                return li;
-            }
-
-            // Create and append list items
             mealArray.forEach((meal, index) => {
-                const li = createListItem(index + 1, meal);
+                const li = createListItem(index + 1, meal, gridColumns);
                 ul.appendChild(li);
             });
         })
@@ -65,40 +31,65 @@ fetch(url)
         });
 });
 
+function createListItem(index, meal, gridColumns) {
+    const li = document.createElement('li');
+    li.className = 'grid-item';
+    li.style.gridColumn = gridColumns[(index - 1) % gridColumns.length];
+    li.style.backgroundImage = `url(${meal.strMealThumb})`;
+    li.setAttribute('aria-label', meal.strMeal);
+
+    const h1 = document.createElement('h2');
+    h1.textContent = meal.strMeal;
+    li.appendChild(h1);
+
+    const button = document.createElement('button');
+    button.textContent = "Click here to see details";
+    button.addEventListener('click', function() {
+        window.location.href = `meal-detail.html?id=${meal.idMeal}&favorites=${encodeURIComponent(JSON.stringify(getFavoriteRecipes()))}`;
+    });
+    li.appendChild(button);
+
+    const favoriteButton = document.createElement('button');
+    favoriteButton.className = 'favoriteButton';
+    const loggedInUserEmail = sessionStorage.getItem('loggedInUser');
+    const favoriteRecipesKey = `user_${loggedInUserEmail}_favorites`;
+    let favoriteRecipes = JSON.parse(localStorage.getItem(favoriteRecipesKey)) || [];
+
+    const isFavorite = favoriteRecipes.some(r => r.idMeal === meal.idMeal);
+    favoriteButton.textContent = isFavorite ? '☆ Unfavorite' : '★ Favorite';
+    favoriteButton.addEventListener('click', function() {
+        toggleFavorite(meal, favoriteButton);
+    });
+    li.appendChild(favoriteButton);
+
+    return li;
+}
+
 function toggleFavorite(meal, button) {
     const loggedInUserEmail = sessionStorage.getItem('loggedInUser');
     if (!loggedInUserEmail) {
-        alert('You must be logged in to add favorites.');
+        alert('You must be logged in to favorite recipes.');
         return;
     }
 
     const favoriteRecipesKey = `user_${loggedInUserEmail}_favorites`;
-    const favoriteRecipes = JSON.parse(localStorage.getItem(favoriteRecipesKey)) || [];
+    let favoriteRecipes = JSON.parse(localStorage.getItem(favoriteRecipesKey)) || [];
 
-    const favoriteIndex = favoriteRecipes.findIndex(fav => fav.id === meal.idMeal);
+    const isFavorite = favoriteRecipes.some(r => r.idMeal === meal.idMeal);
 
-    if (favoriteIndex === -1) {
-        // Add to favorites
-        favoriteRecipes.push({ id: meal.idMeal, name: meal.strMeal });
-        localStorage.setItem(favoriteRecipesKey, JSON.stringify(favoriteRecipes));
-        button.textContent = '✓ Favorited';
-        alert(`${meal.strMeal} has been added to your favorites!`);
-    } else {
+    if (isFavorite) {
         // Remove from favorites
-        favoriteRecipes.splice(favoriteIndex, 1);
-        localStorage.setItem(favoriteRecipesKey, JSON.stringify(favoriteRecipes));
+        favoriteRecipes = favoriteRecipes.filter(r => r.idMeal !== meal.idMeal);
         button.textContent = '★ Favorite';
-        alert(`${meal.strMeal} has been removed from your favorites.`);
+        alert('Recipe removed from favorites!');
+    } else {
+        // Add to favorites
+        favoriteRecipes.push({ idMeal: meal.idMeal, name: meal.strMeal });
+        button.textContent = '☆ Unfavorite';
+        alert('Recipe added to favorites!');
     }
-}
 
-function isFavorite(mealId) {
-    const loggedInUserEmail = sessionStorage.getItem('loggedInUser');
-    if (!loggedInUserEmail) return false;
-    
-    const favoriteRecipesKey = `user_${loggedInUserEmail}_favorites`;
-    const favoriteRecipes = JSON.parse(localStorage.getItem(favoriteRecipesKey)) || [];
-    return favoriteRecipes.some(fav => fav.id === mealId);
+    localStorage.setItem(favoriteRecipesKey, JSON.stringify(favoriteRecipes));
 }
 
 function getFavoriteRecipes() {
