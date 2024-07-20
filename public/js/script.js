@@ -2,8 +2,8 @@ const requestOptions = {
     method: "GET",
     redirect: "follow"
   };
-  
-  fetch("www.themealdb.com/api/json/v1/1/categories.php", requestOptions)
+const database = "www.themealdb.com/api/json/v1/1/categories.php"
+fetch(database, requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
