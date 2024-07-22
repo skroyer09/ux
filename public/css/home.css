@@ -99,6 +99,41 @@
     }
 
     .recipes-of-the-week {
+        grid-column: 1 / span 3;
+        grid-row: 3;
+    }
+
+    .recipes-of-the-week article {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wel-header {
+        font-size: 3rem;
+        grid-column: span 3;
+        justify-content: left;
+    }
+
+    .wel-text {
+        font-size: 1.6rem;
+    }
+
+    .rtw-text {
+        font-size: 1.4rem;
+    }
+}
+
+@media(min-width: 57rem) {
+     .main-content {
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+    }
+
+    .welcome {
+        grid-column: span 2;
+    }
+
+    .recipes-of-the-week {
         grid-column: 2 / span 2;
         grid-row: 3;
     }

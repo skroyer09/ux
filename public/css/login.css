@@ -30,7 +30,7 @@ main {
 }
 
 .login-container {
-    width: 25rem;
+    width: 20rem;
     background-color: var(--loginBgColor);
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem var(--shadowTheHedgehog);
@@ -41,7 +41,7 @@ main {
 }
 
 .signup-container {
-    width: 25rem;
+    width: 20rem;
     background-color: var(--loginBgColor);
     padding: 1rem;
     border-radius: 0.5rem;
@@ -102,4 +102,16 @@ main {
     flex-direction: column;
     width: 100%;
     padding: 1rem 0;
+}
+
+@media(min-width: 57rem) {
+
+.login-container {
+  width: 25rem;
+}
+
+.signup-container {
+  width: 25rem;
+}
+
 }
