@@ -278,21 +278,21 @@ footer{
   display: none;
 }
 
-
-
 /* end of footer */
 
 /* start of @mediea */
 
-@media(min-width: 48rem){
+@media(min-width: 57rem){
 
-
-
-  .hideOnMobile{
+  .hideOnMobile {
     display: flex;
   }
   
-  .menu-button{
+  .sidebar {
+    display: none;
+  }
+
+  .menu-button {
     display: none;
   }
 
@@ -329,19 +329,6 @@ footer{
     margin-top: 2rem;
     margin-bottom: 1rem;
     text-align: center;
-  }
-}
-
-
-@media(min-width: 28.125rem){
-
-  .footer-col ul li {
-    text-align: center;
-  }
-
-  .logo h1 {
-    font-size: 3rem;
-    padding: 2rem 0;
   }
 }
 

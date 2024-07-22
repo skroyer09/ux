@@ -17,9 +17,13 @@
 .profile-container {
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    justify-content: center;
+    align-items: center; 
     width: 100%;
+    max-width: 75rem; 
     padding: 3rem 0;
+    box-sizing: border-box; 
+    font-size: 1.50rem;
 }
 
 .recipes-container{
@@ -56,6 +60,7 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .grid-item-favorite h2, .grid-item p, .grid-item button {
@@ -97,17 +102,14 @@
     width: 100%;
 }
 
-@media only screen and (min-width: 48rem) {
+@media only screen and (min-width: 57rem) {
+
     .grid-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
 
     .main {
-        max-width: 90%;
-    }
-
-    .grid-item-favorite {
-        margin-bottom: 1.25rem;
+        max-width: 100%;
     }
 }
