@@ -17,12 +17,6 @@ function hideSidebar() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.style.display = 'none';
 }
-document.getElementById('showSidebar').addEventListener("click", showSidebar)
-
-function showSidebar() {
-    const sidebar = document.getElementById('showSidebar')
-    sidebar.style.display = 'flex'
-    }
 
 document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('#navbar');
