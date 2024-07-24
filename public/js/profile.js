@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async () => {
+(async () => {
     const profileInfo = document.getElementById('profile-info');
     const favoriteRecipesList = document.getElementById('favorite-recipes');
 
@@ -39,18 +39,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         return recipe;
     });
 
-    //  remove a recipe from the favorites list
+    // Remove a recipe from the favorites list
     const removeFavoriteRecipe = (mealId) => {
         console.log(`Removing meal ID: ${mealId}`); // Debugging step
 
-        // debugging... 
+        // Debugging...
         favoriteRecipes.forEach(recipe => console.log(`Existing recipe ID: ${recipe.idMeal}`));
 
         favoriteRecipes = favoriteRecipes.filter(recipe => recipe.idMeal !== mealId);
 
         console.log('Updated favorite recipes:', favoriteRecipes); // Debugging step
 
-        //  even more debugging ...
+        // Even more debugging...
         const removedRecipe = favoriteRecipes.find(recipe => recipe.idMeal === mealId);
         if (removedRecipe) {
             console.error(`Failed to remove meal ID: ${mealId}`);
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const recipe of favoriteRecipes) {
             const mealId = recipe.idMeal;
 
-            // Fetch meal details to get image from api
+            // Fetch meal details to get image from API
             const mealDetailUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
             const mealDetailResponse = await fetch(mealDetailUrl);
             const mealDetailData = await mealDetailResponse.json();
@@ -97,11 +97,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             const unfavoriteButton = document.createElement('button');
-            unfavoriteButton.classList.add('favorite-button'); 
+            unfavoriteButton.classList.add('favorite-button');
             unfavoriteButton.textContent = "Unfavorite";
             unfavoriteButton.addEventListener('click', (event) => {
-                event.stopPropagation(); // stops propagation
-                console.log(`Unfavorite button clicked for meal ID: ${mealId}`); // debugging...
+                event.stopPropagation(); // Stops propagation
+                console.log(`Unfavorite button clicked for meal ID: ${mealId}`); // Debugging...
                 removeFavoriteRecipe(mealId);
             });
 
@@ -112,7 +112,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    
     renderFavoriteRecipes();
-});
-
+})();
