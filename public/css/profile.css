@@ -1,6 +1,9 @@
 @import '_variables.css';
 @import 'styles.css';
 
+.h2_profile {
+    margin-left: 3.125rem;
+}
 
 .favoriteButton {
     margin-bottom: 3rem;
