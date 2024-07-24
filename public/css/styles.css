@@ -64,7 +64,7 @@ h2 {
   font-weight: bold;
 }
 
-p, a  {
+p, a, label  {
   font-family: var(--BodyFont);
   font-weight: 400;
   font-style: normal;
