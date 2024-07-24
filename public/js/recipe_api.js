@@ -38,6 +38,7 @@ function createListItem(index, meal, gridColumns) {
 
     const h1 = document.createElement('h2');
     h1.textContent = meal.strMeal;
+    h1.classList.add('mealName');
     li.appendChild(h1);
 
     const button = document.createElement('button');

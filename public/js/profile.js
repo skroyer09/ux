@@ -89,6 +89,7 @@
 
             const mealName = document.createElement('h2');
             mealName.textContent = meal.strMeal;
+            mealName.classList.add('mealName');
 
             const listItemButton = document.createElement('button');
             listItemButton.textContent = "Click here to see details";

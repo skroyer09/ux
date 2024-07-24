@@ -1,5 +1,9 @@
 @import '_variables.css';
 
+.mealName {
+    color: var(--bgColor);
+}
+
 .favoriteButton {
     margin-bottom: 3rem;
 }
