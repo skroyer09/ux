@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
     <script src="js/api.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/form.js" defer></script>
 </head>
 <body>
     <header>
@@ -63,7 +64,7 @@
                 Contact us here!
             </h3>
             <img src="images/kitchen2.webp" alt="FoodImage">
-            <form class="form" action="#" method="POST">
+            <form class="form" id="contactForm" >
                 <fieldset>
                     <legend>Your Email</legend>
                     <div>
@@ -85,7 +86,9 @@
                     </div>
                 </fieldset>
             </form>
+            <p id="result"></p>
         </section>
+        
     </main>
     <footer>
         <div class="container">
