@@ -89,6 +89,7 @@ function createListItem(index, meal, gridColumns) {
     const isFavorite = favoriteRecipes.some(r => r.idMeal === meal.idMeal);
     favoriteButton.textContent = isFavorite ? '☆ Unfavorite' : '★ Favorite';
     favoriteButton.addEventListener('click', function() {
+        console.log("clicked")
         toggleFavorite(meal, favoriteButton);
     });
     li.appendChild(favoriteButton);
@@ -96,7 +97,7 @@ function createListItem(index, meal, gridColumns) {
     return li;
 }
 
-function toggleFavorite(meal, button) {
+function toggleFavorite(meal, button) { console.log("in toggle favorite")
     const loggedInUserEmail = sessionStorage.getItem('loggedInUser');
     if (!loggedInUserEmail) {
         alert('You must be logged in to favorite recipes.');
@@ -107,6 +108,7 @@ function toggleFavorite(meal, button) {
     let favoriteRecipes = JSON.parse(localStorage.getItem(favoriteRecipesKey)) || [];
 
     const isFavorite = favoriteRecipes.some(r => r.idMeal === meal.idMeal);
+    console.log(isFavorite)
 
     if (isFavorite) {
         favoriteRecipes = favoriteRecipes.filter(r => r.idMeal !== meal.idMeal);

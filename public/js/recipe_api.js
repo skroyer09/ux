@@ -64,32 +64,32 @@ function createListItem(index, meal, gridColumns) {
     return li;
 }
 
-function toggleFavorite(meal, button) {
-    const loggedInUserEmail = sessionStorage.getItem('loggedInUser');
-    if (!loggedInUserEmail) {
-        alert('You must be logged in to favorite recipes.');
-        return;
-    }
+// function toggleFavorite(meal, button) {
+//     const loggedInUserEmail = sessionStorage.getItem('loggedInUser');
+//     if (!loggedInUserEmail) {
+//         alert('You must be logged in to favorite recipes.');
+//         return;
+//     }
 
-    const favoriteRecipesKey = `user_${loggedInUserEmail}_favorites`;
-    let favoriteRecipes = JSON.parse(localStorage.getItem(favoriteRecipesKey)) || [];
+//     const favoriteRecipesKey = `user_${loggedInUserEmail}_favorites`;
+//     let favoriteRecipes = JSON.parse(localStorage.getItem(favoriteRecipesKey)) || [];
 
-    const isFavorite = favoriteRecipes.some(r => r.idMeal === meal.idMeal);
+//     const isFavorite = favoriteRecipes.some(r => r.idMeal === meal.idMeal);
 
-    if (isFavorite) {
-        // Remove from favorites
-        favoriteRecipes = favoriteRecipes.filter(r => r.idMeal !== meal.idMeal);
-        button.textContent = '★ Favorite';
-        alert('Recipe removed from favorites!');
-    } else {
-        // Add to favorites
-        favoriteRecipes.push({ idMeal: meal.idMeal, name: meal.strMeal });
-        button.textContent = '☆ Unfavorite';
-        alert('Recipe added to favorites!');
-    }
+//     if (isFavorite) {
+//         // Remove from favorites
+//         favoriteRecipes = favoriteRecipes.filter(r => r.idMeal !== meal.idMeal);
+//         button.textContent = '★ Favorite';
+//         alert('Recipe removed from favorites!');
+//     } else {
+//         // Add to favorites
+//         favoriteRecipes.push({ idMeal: meal.idMeal, name: meal.strMeal });
+//         button.textContent = '☆ Unfavorite';
+//         alert('Recipe added to favorites!');
+//     }
 
-    localStorage.setItem(favoriteRecipesKey, JSON.stringify(favoriteRecipes));
-}
+//     localStorage.setItem(favoriteRecipesKey, JSON.stringify(favoriteRecipes));
+// }
 
 function getFavoriteRecipes() {
     const loggedInUserEmail = sessionStorage.getItem('loggedInUser');

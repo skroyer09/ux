@@ -112,6 +112,7 @@ function formatInstructions(instructions) {
 }
 
 function toggleFavorite(meal, button) {
+    console.log("what")
     const loggedInUserEmail = sessionStorage.getItem('loggedInUser');
     if (!loggedInUserEmail) {
         alert('You must be logged in to favorite recipes.');
@@ -127,12 +128,12 @@ function toggleFavorite(meal, button) {
         // Remove from favorites
         favoriteRecipes = favoriteRecipes.filter(r => r.idMeal !== meal.idMeal);
         button.textContent = '★ Favorite';
-        alert('Recipe removed from favorites!');
+        // alert('Recipe removed from favorites!');
     } else {
         // Add to favorites
         favoriteRecipes.push({ idMeal: meal.idMeal, name: meal.strMeal });
         button.textContent = '☆ Unfavorite';
-        alert('Recipe added to favorites!');
+        // alert('Recipe added to favorites!');
     }
 
     localStorage.setItem(favoriteRecipesKey, JSON.stringify(favoriteRecipes));
